@@ -1,0 +1,13 @@
+<div class="m-3">
+<h1>My tasks</h1>
+<ul>
+  <% @tasks.each do |task | %>
+    <li>
+      <%= link_to task.title, task_path(task) %>
+       •
+      <%= link_to "🗑️", task_path(task), data: {turbo_method: :delete, turbo_confirm: "T'es sure ?"} %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "CreateTask", new_task_path, class:"btn btn-primary"%>
+</div>
